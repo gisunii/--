@@ -20,6 +20,7 @@ $(function () {
         var dataNav = $(this).attr('data-nav');
         var pageItem = $('.data-nav-' + dataNav);
         if(dataNav == 4 && !isMapAdded) {
+            addMap();
             isMapAdded = true;
         }
         pageItem.animate({left:'0'});
@@ -38,6 +39,7 @@ $(function () {
     });
 
     // 地图页面
+    function addMap() {
         var positionArr = [[108.393135, 31.160711], [116.286407, 39.748232], [114.035504, 22.524612]]; // 开州,北京建筑大学,福田
         var titileArr = ['重庆市开州区', '北京建筑大学', '深圳市福田区'];
         var iconArr = ['pos-home.png', 'pos-school.png', 'pos-me.png'];
@@ -47,27 +49,11 @@ $(function () {
             doubleClickZoom: false,
             mapStyle: 'amap://styles/graffiti'
         });
-        });
-        marker.on('click', function(e) {
-            map.setZoomAndCenter(14, [e.target.getPosition().lng, e.target.getPosition().lat]);
-        });
-    }
-    
-    AMap.service('AMap.Driving',function() {
-        var drivingOption = {
-            map: map,
-            policy: AMap.DrivingPolicy.LEAST_DISTANCE,
-            hideMarkers: true,
-            autoFitView: false
-        };
-        var driving1 = new AMap.Driving(drivingOption);
-        var driving2 = new AMap.Driving(drivingOption);
-        var driving3 = new AMap.Driving(drivingOption);
 
-        driving1.search(positionArr[0], positionArr[1], function(status, result) { });
-        driving2.search(positionArr[0], positionArr[2], function(status, result) { });
-        driving3.search(positionArr[1], positionArr[2], function(status, result) { });
-    })
+        map.on('dblclick', function(e) {
+            // 双击返回主视图
+            map.setZoomAndCenter(3, positionArr[0]);
+        });
         
         for (var i = 0; i < 3; i++) {
             var icon = new AMap.Icon({
