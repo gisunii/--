@@ -22,4 +22,55 @@ $(function () {
         pageItem.addClass('active');
     });
 
+    //时间轴页面
+    
+
+    // 地图页面
+    var positionArr = [[108.393135, 31.160711], [116.286407, 39.748232], [114.035504, 22.524612]]; // 开州,北京建筑大学,福田
+    var titileArr = ['重庆市开州区', '北京建筑大学', '深圳市福田区'];
+    var iconArr = ['pos-home.png', 'pos-school.png', 'pos-me.png'];
+    var map = new AMap.Map('map',{
+        zoom: 3,
+        center: positionArr[0],
+        mapStyle: 'amap://styles/graffiti'
+    });
+
+    $('#home').click(function(){
+        map.setZoomAndCenter(3, positionArr[0]);
+    });
+    
+    for (var i = 0; i < 3; i++) {
+        var icon = new AMap.Icon({
+            image: './images/' + iconArr[i],
+            size: new AMap.Size(24, 24)
+        });
+        marker = new AMap.Marker({
+            icon: icon,
+            position: positionArr[i],
+            zIndex: 101,
+            offset : new AMap.Pixel(-12,-12),
+            title: titileArr[i],
+            map: map
+        });
+        marker.on('click', function(e) {
+            map.setZoomAndCenter(14, [e.target.getPosition().lng, e.target.getPosition().lat]);
+        });
+    }
+    
+    AMap.service('AMap.Driving',function() {
+        var drivingOption = {
+            map: map,
+            policy: AMap.DrivingPolicy.LEAST_DISTANCE,
+            hideMarkers: true,
+            autoFitView: false
+        };
+        var driving1 = new AMap.Driving(drivingOption);
+        var driving2 = new AMap.Driving(drivingOption);
+        var driving3 = new AMap.Driving(drivingOption);
+
+        driving1.search(positionArr[0], positionArr[1], function(status, result) { });
+        driving2.search(positionArr[0], positionArr[2], function(status, result) { });
+        driving3.search(positionArr[1], positionArr[2], function(status, result) { });
+    })
+    
 })

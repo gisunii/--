@@ -6,38 +6,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/microtip.css">
 </head>
 
 <body>
     <div class="container">
         <div class="content">
-            <header>title</header>
+            <header>
+                <span><i class="fa fa-phone"></i>182-0100-0211</span>
+                <span class="split">|</span>
+                <span><i class="fa fa-envelope"></i>849151701@QQ.COM</span>
+            </header>
             <div class="page-list">
                 <div class="data-nav-1 page-item border-yellow active">
-                    123
+                    <div class="main-timeline">
+                            <div class="timeline">
+                                <div class="timeline-content">
+                                    <span class="date">
+                                        <span class="year">2017</span>
+                                        <span class="day">10/10</span>
+                                    </span>
+                                    <h2 class="title">111Web Design</h2>
+                                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dapibus, quam non pellentesque consequat, massa justo elementum nunc, ac efficitur tortor nunc sit amet dolor.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline">
+                                <div class="timeline-content">
+                                    <span class="date">
+                                        <span class="year">2017</span>
+                                        <span class="day">10/10</span>
+                                    </span>
+                                    <h2 class="title">222Web Development</h2>
+                                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dapibus, quam non pellentesque consequat, massa justo elementum nunc, ac efficitur tortor nunc sit amet dolor.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline">
+                                <div class="timeline-content">
+                                    <span class="date">
+                                        <span class="year">2017</span>
+                                        <span class="day">10/10</span>
+                                    </span>
+                                    <h2 class="title">333Web Design</h2>
+                                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dapibus, quam non pellentesque consequat, massa justo elementum nunc, ac efficitur tortor nunc sit amet dolor.</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline">
+                                <div class="timeline-content">
+                                    <span class="date">
+                                        <span class="year">2017</span>
+                                        <span class="day">10/10</span>
+                                    </span>
+                                    <h2 class="title">444Web Development</h2>
+                                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla dapibus, quam non pellentesque consequat, massa justo elementum nunc, ac efficitur tortor nunc sit amet dolor.</p>
+                                </div>
+                            </div>
+                        
+                    </div>
                 </div>
+
                 <div class="data-nav-2 page-item border-blue">
-                    456
+                    <div class="wrap">
+                        <div class="tile tile-first">
+                            <div class="text">
+                                <h1>OSCHina</h1>
+                                <img src="images/oschina-blog.png">
+                                <h2 class="animate-text">使用OsmSharp处理OpenStreetMap(OSM)数据</h2>
+                                <a href="https://my.oschina.net/huanglii/blog/897528" target="_blank" class="dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="tile">
+                            <div class="text">
+                                <h1>GitHub</h1>
+                                <img src="images/github-blog.png">
+                                <h2 class="animate-text">ArcGIS API for JavaScript 加载天地图WMTS图层</h2>
+                                <a href="https://github.com/huanglii/TianDiTu" target="_blank" class="dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="data-nav-3 page-item border-green">
-                    789
+                    
+                    
+
                 </div>
+
+                <!-- about -->
                 <div class="data-nav-4 page-item border-purple">
-                    0
+                    <div id="map"></div>
                 </div>
             </div>
             <nav class="nav-tabs">
                 <div class="btn-group">
-                    <button class="nav-tabs-btn btn-triger pink">
+                    <button id="home" class="nav-tabs-btn btn-triger pink">
                       <i class="icon-bars"></i>
                     </button>
                     <div class="btn-list">
-                        <a href="#" data-nav="1" class="nav-tabs-btn yellow"><i class="fa fa-search"></i></a>
-                        <a href="#" data-nav="2" class="nav-tabs-btn blue"><i class="fa fa-cloud-download"></i></a>
-                        <a href="#" data-nav="3" class="nav-tabs-btn green"><i class="fa fa-paperclip"></i></a>
-                        <a href="#" data-nav="4" class="nav-tabs-btn purple"><i class="fa fa-line-chart"></i></a>
+                        <a href="#" data-nav="1" class="nav-tabs-btn yellow active" data-microtip="主页" data-microtip-position="top">
+                            <i class="fa fa-paper-plane-o"></i>
+                        </a>
+                        <a href="#" data-nav="2" class="nav-tabs-btn blue" data-microtip="博客" data-microtip-position="top">
+                            <i class="fa fa-puzzle-piece"></i>
+                        </a>
+                        <a href="#" data-nav="3" class="nav-tabs-btn green" data-microtip="经验" data-microtip-position="top">
+                            <i class="fa fa-map-signs"></i>
+                        </a>
+                        <a href="#" data-nav="4" class="nav-tabs-btn purple" data-microtip="关于" data-microtip-position="top">
+                            <i class="fa fa-user-o"></i>
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -45,6 +134,8 @@
     </div>
 
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=1d67f77cf5207f1c595544f3120a3039"></script>
+
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 

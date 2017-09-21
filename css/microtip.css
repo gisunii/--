@@ -1,0 +1,98 @@
+/* -------------------------------------------------------------------
+  Microtip
+
+  Modern, lightweight css-only tooltips
+  Less than 1kb minified and gzipped
+
+  @author Ghosh
+  @package Microtip
+
+----------------------------------------------------------------------
+  1. Base Styles
+  2. Direction Modifiers
+  3. Position Modifiers
+--------------------------------------------------------------------*/
+
+
+/* ------------------------------------------------
+  [1] Base Styles
+-------------------------------------------------*/
+
+[data-microtip] {
+  position: relative;
+}
+
+[data-microtip]:before,
+[data-microtip]:after {
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--microtip-transition-duration, .18s) var(--microtip-transition-easing, ease-in-out) var(--microtip-transition-delay, 0s);
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 10;
+  transform-origin: top;
+}
+
+[data-microtip]:before {
+  background-size: 100% auto !important;
+  content: "";
+}
+
+[data-microtip]:after {
+  height: 20px;
+  line-height: 20px;
+  background: rgba(17, 17, 17, .9);
+  border-radius: 4px;
+  color: #ffffff;
+  content: attr(data-microtip);
+  font-size: var(--microtip-font-size, 16px);
+  font-weight: var(--microtip-font-weight, normal);
+  text-transform: var(--microtip-text-transform, none);
+  padding: 8px 10px;
+  white-space: nowrap;
+  box-sizing: content-box;
+}
+
+[data-microtip]:hover:before,
+[data-microtip]:hover:after {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ------------------------------------------------
+  [2] Position Modifiers
+-------------------------------------------------*/
+
+[data-microtip-position|="top"]:before {
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba%2817,%2017,%2017,%200.9%29%22%20transform%3D%22rotate%280%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E") no-repeat;
+  height: 6px;
+  width: 18px;
+}
+
+[data-microtip-position|="top"]:after {
+  margin-bottom: 5px;
+}
+
+[data-microtip-position|="top"]:before {
+  transform: translate3d(-50%, 0, 0);
+  bottom: 100%;
+  left: 50%;
+}
+
+[data-microtip-position|="top"]:hover:before {
+  transform: translate3d(-50%, -5px, 0);
+}
+
+[data-microtip-position|="top"]:after {
+  transform: translate3d(-50%, 0, 0);
+  bottom: 100%;
+  left: 50%;
+}
+
+[data-microtip-position="top"]:hover:after {
+  transform: translate3d(-50%, -5px, 0);
+}
