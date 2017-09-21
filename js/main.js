@@ -23,7 +23,15 @@ $(function () {
     });
 
     //时间轴页面
-    
+    $('.main-timeline').mousewheel(function(event, delta) {
+        console.log(event, delta);
+        var topOld = parseInt($('.main-timeline').css('top'));
+        var topNew = topOld + delta * 30;
+        topNew = topNew>0?0:topNew;
+        topNew = topNew<-367?-367:topNew;
+        $('.main-timeline').css('top', topNew);
+        return false;
+    });
 
     // 地图页面
     var positionArr = [[108.393135, 31.160711], [116.286407, 39.748232], [114.035504, 22.524612]]; // 开州,北京建筑大学,福田

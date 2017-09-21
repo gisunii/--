@@ -408,9 +408,9 @@ body:after {
 
 /*timeline*/
 .main-timeline{
-	height: 730px;
+	height: auto;
 	padding: 10px;
-	position: relative;
+	position: absolute;
     background: #25303b;
 }
 .main-timeline:before{
@@ -425,9 +425,12 @@ body:after {
     background: rgba(255,255,255,0.2);
 }
 .main-timeline .timeline{
-    width: 100%;
-    margin-top: 5px;
+	width: 100%;
+	margin-bottom: 15px;
     position: relative;
+}
+.main-timeline .timeline:last-child{
+	margin-bottom: 5px;
 }
 .main-timeline .timeline:after{
     content: "";
@@ -499,10 +502,6 @@ body:after {
 }
 .main-timeline .timeline:nth-child(2n+2) .timeline-content{
     float: right;
-    margin-bottom: 30px;
-}
-.main-timeline .timeline:last-child .timeline-content{
-    margin-bottom: 0;
 }
 .main-timeline .timeline:nth-child(2n+2) .title:after{
     left: -5px;
